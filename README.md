@@ -1,9 +1,20 @@
+# 국방 AI 경진대회 코드 사용법(본선)
+## 사용한 모델 ## 
+- 김태민, 임서현: MPRNet, 26.3(PSNR) [github](https://github.com/swz30/MPRNet)
+- 정시현, 이준형: Restomer, 21.2(PSNR) [github](https://github.com/swz30/Restormer)
+- 데이터 분석 및 데이터 셋 재구성
+  - PSNR 점수로 학습 데이터의 분포를 확인후에 2400장으로 재구성.
+- 후처리
+  - Restomer의 pretrained Deblurring model 사용해 PSNR 0.5점 높임.
 # 국방 AI 경진대회 코드 사용법(예선)
 
 > 팀명 : 중요한 건 꺾는 마음
 
-정시현, 이준형, 김태민, 임서현  
+팀원: 정시현(팀장), 이준형, 김태민, 임서현  
 sh2298, jjuun, taemin6697, 임리둥절
+- 정시현: 모델 파이프라인 구축 및 총괄
+- 이준형: 데이터 분석 및 불균형 데이터 증강(cutmix, transform(flip, rotate, crop, gausian blur))
+- 김태민, 임서현: 모델 선정 및 tunning(learning rate, batch)
 
 # 핵심 파일 설명
 
