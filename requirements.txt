@@ -1,0 +1,13 @@
+torch==1.12.1
+torchvision==0.13.1
+transformers
+datasets
+pickle5
+pyyaml
+scikit-learn
+numpy
+pandas
+evaluate
+pillow
+opencv-python
+matplotlib

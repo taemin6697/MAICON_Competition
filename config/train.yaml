@@ -1,0 +1,58 @@
+# System
+gpu_num: 1
+seed: 42
+debug: False
+verbose: False
+
+# Train / val
+val_size: 0.3
+train_folder: final-submission
+
+# Data Loader
+input_width: 480
+input_height: 256
+scaler: normalize
+num_workers: 8
+shuffle: True
+drop_last: False
+
+# Model
+architecture: Swin
+encoder: efficientnet-b0 #timm-regnety_016
+encoder_weight: imagenet
+depth: 5
+n_classes: 4
+activation: sigmoid
+
+# Trainer
+n_epochs: 6
+batch_size: 4
+loss:
+  name: MeanCCELoss # MeanCCELoss
+  args:
+    weight: [1, 1, 1, 1]
+metrics:
+  - miou
+  - iou1
+  - iou2
+  - iou3
+earlystopping_target: val_miou
+earlystopping_patience: 5
+optimizer:
+  name: AdamW
+  args:
+    lr: 5.0e-04
+    weight_decay: 5.0e-02
+scheduler:
+  name: CosineAnnealingLR
+  args:
+    T_max: 100
+    eta_min: 0
+
+# Logging
+plot:
+  - loss
+  - miou
+  - iou1
+  - iou2
+  - iou3
